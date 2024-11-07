@@ -6,7 +6,6 @@ import User from "../models/User.js";
 import Workout from "../models/Workout.js";
 
 dotenv.config();
-
 export const UserRegister = async (req, res, next) => {
   try {
     const { email, password, name, img } = req.body;
@@ -45,7 +44,7 @@ export const UserLogin = async (req, res, next) => {
     if (!user) {
       return next(createError(404, "User not found"));
     }
-    console.log(user);
+
     // Check if password is correct
     const isPasswordCorrect = await bcrypt.compareSync(password, user.password);
     if (!isPasswordCorrect) {
