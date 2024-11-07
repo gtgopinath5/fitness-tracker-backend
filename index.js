@@ -8,7 +8,10 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({ origin: 'https://fitness-tracker-frontend-vert.vercel.app/' }));
+// Corrected CORS configuration without trailing slash
+app.use(cors({
+  origin: 'https://fitness-tracker-frontend-vert.vercel.app', // Removed trailing slash
+}));
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true }));
 
@@ -51,4 +54,3 @@ const startServer = async () => {
 };
 
 startServer();
-
